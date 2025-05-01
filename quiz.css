@@ -1,0 +1,491 @@
+/* linguatab-quizzer/quiz.css */
+
+/* Ensure body fills viewport and centers container */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* System font stack */
+    background-color: #f0f4f8;
+    /* Slightly softer background */
+    color: #333;
+    margin: 0;
+    /* Remove default margin */
+    padding: 15px;
+    /* Add padding around the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Full viewport height */
+    box-sizing: border-box;
+    /* Include padding in height calculation */
+    overflow: hidden;
+    /* Prevent BODY from scrolling */
+}
+
+/* Main container for the quiz elements */
+.quiz-container {
+    background-color: #ffffff;
+    padding: 20px 35px 25px 35px;
+    /* Adjusted padding */
+    border-radius: 12px;
+    /* Slightly more rounded corners */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    /* Softer shadow */
+    text-align: center;
+    max-width: 480px;
+    /* Set a max-width for consistency */
+    width: 100%;
+    /* Use full width up to max-width */
+    position: relative;
+    /* Needed for absolute positioning of buttons */
+    box-sizing: border-box;
+    /* Include padding in width calc */
+
+    /* --- SCROLLING LOGIC --- */
+    max-height: calc(100vh - 30px);
+    /* Max height slightly less than viewport (body padding * 2) */
+    overflow-y: auto;
+    /* Add vertical scrollbar ONLY if content overflows */
+    /* --- END SCROLLING LOGIC --- */
+}
+
+/* Settings Button */
+#settings-button {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    /* Position on the left */
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    /* Adjust size */
+    color: #aaa;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    z-index: 10;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#settings-button:hover {
+    color: #555;
+    transform: rotate(45deg);
+    /* Fun rotate effect */
+}
+
+/* Close button styling */
+#close-button {
+    position: absolute;
+    top: 10px;
+    /* Adjusted position */
+    right: 12px;
+    /* Adjusted position */
+    background: none;
+    border: none;
+    font-size: 1.9em;
+    /* Slightly larger */
+    color: #aaa;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    z-index: 10;
+    /* Ensure it's above content */
+    transition: color 0.2s ease;
+}
+
+#close-button:hover {
+    color: #555;
+    /* Darker hover */
+}
+
+/* Main heading */
+h2 {
+    color: #005A9C;
+    /* Darker blue */
+    margin-bottom: 25px;
+    /* More space below heading */
+    margin-top: 10px;
+    /* Space above heading (below buttons) */
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+/* Container for the question text */
+#question-container {
+    margin-bottom: 20px;
+    /* More space */
+    font-size: 1.2em;
+    /* Slightly larger question text */
+    font-weight: 500;
+    /* Medium weight */
+    min-height: 45px;
+    /* Ensure space */
+    color: #222;
+    /* Darker text */
+    line-height: 1.4;
+}
+
+/* Container for the option buttons */
+#options-container {
+    margin-bottom: 20px;
+    /* Space before feedback */
+}
+
+/* Styling for individual option buttons */
+#options-container button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    /* More padding */
+    margin: 10px 0;
+    /* More spacing */
+    font-size: 1.05em;
+    text-align: center;
+    border: 1px solid #d0d0d0;
+    /* Lighter border */
+    border-radius: 8px;
+    /* More rounded */
+    background-color: #fff;
+    /* White background */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+#options-container button:not(:disabled):hover {
+    background-color: #f8f8f8;
+    /* Subtle hover */
+    border-color: #a0a0a0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#options-container button:active:not(:disabled) {
+    transform: scale(0.99);
+    /* Subtle click effect */
+    background-color: #f0f0f0;
+}
+
+#options-container button:disabled {
+    cursor: default;
+    opacity: 0.65;
+    /* Slightly more faded when disabled */
+}
+
+/* Feedback area (Correct/Incorrect) */
+#feedback-container {
+    margin-top: 20px;
+    min-height: 30px;
+    /* Reserve space */
+    font-weight: 600;
+    /* Bolder feedback */
+    font-size: 1.15em;
+    padding: 5px 0;
+    /* Add some vertical padding */
+}
+
+.correct {
+    color: #28a745;
+}
+
+/* Green for correct */
+.incorrect {
+    color: #dc3545;
+}
+
+/* Red for incorrect */
+
+/* Explanation area */
+#explanation-container {
+    margin-top: 25px;
+    /* More space */
+    padding-top: 20px;
+    /* More space */
+    border-top: 1px solid #e5e5e5;
+    /* Lighter separator */
+    text-align: left;
+    font-size: 0.98em;
+    /* Slightly larger explanation text */
+    color: #444;
+    /* Slightly darker grey */
+}
+
+#explanation-container h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    /* More space */
+    color: #111;
+    /* Darker heading */
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+#explanation-text p {
+    margin: 8px 0 12px 5px;
+    /* Adjust spacing and add slight indent */
+    line-height: 1.5;
+    /* Improve readability */
+}
+
+#explanation-text strong {
+    font-weight: 600;
+    /* Bolder */
+    color: #000;
+}
+
+/* Specific styling for correct explanation in the list */
+#explanation-text p.correct-explanation {
+    font-weight: 600;
+    /* Applied via class */
+    color: #28a745;
+    /* Applied via class */
+    background-color: #e9f7ef;
+    /* Very light green background */
+    padding: 5px 8px;
+    border-radius: 4px;
+    margin-left: 0;
+    /* Remove indent for highlighted one */
+}
+
+/* Styling for specific button states after answer */
+#options-container button.correct-answer {
+    background-color: #d4edda;
+    border-color: #5cb85c;
+    /* Stronger green border */
+    color: #155724;
+    font-weight: 600;
+    opacity: 1;
+}
+
+#options-container button.wrong-answer {
+    background-color: #f8d7da;
+    border-color: #d9534f;
+    /* Stronger red border */
+    color: #721c24;
+    opacity: 0.7;
+    /* Keep fading wrong selection */
+}
+
+/* Ensure disabled correct answer doesn't get faded */
+#options-container button.correct-answer:disabled {
+    opacity: 1;
+}
+
+
+/* Next question button styling */
+#next-question-button {
+    display: inline-block;
+    background-color: #007bff;
+    /* Standard blue */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05em;
+    margin-top: 25px;
+    /* More space above */
+    padding: 12px 25px;
+    /* Comfortable padding */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#next-question-button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+#next-question-button:active {
+    transform: scale(0.98);
+}
+
+
+/* --- Settings Area Styles --- */
+#settings-area {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: left;
+
+    /* --- FIX APPLIED HERE --- */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+    width: 100%;
+    /* Ensure it tries to take the full width of its container's content area */
+    /* --- END FIX --- */
+}
+
+#settings-area h4 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.2em;
+    /* Slightly larger settings title */
+    font-weight: 600;
+}
+
+#settings-area p small {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    /* More space */
+    color: #666;
+}
+
+/* Language Options Checkboxes */
+#language-options {
+    display: grid;
+    /* Use grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    /* Responsive columns */
+    gap: 12px;
+    /* Spacing between items */
+    margin-bottom: 25px;
+    /* More space */
+}
+
+#language-options label {
+    display: flex;
+    /* Align checkbox and text */
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 14px;
+    /* More padding */
+    border-radius: 6px;
+    /* Slightly less rounded */
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    font-size: 1em;
+    /* Standard font size */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+#language-options label:hover {
+    background-color: #f0f8ff;
+    /* Light blue hover */
+    border-color: #a8c5e0;
+}
+
+#language-options input[type="checkbox"] {
+    margin-right: 10px;
+    /* Space between checkbox and text */
+    cursor: pointer;
+    /* Optional: Style checkbox appearance */
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    /* Prevent checkbox from shrinking */
+}
+
+/* Settings Action Buttons */
+.settings-actions {
+    display: flex;
+    justify-content: space-between;
+    /* Space out buttons */
+    align-items: center;
+    /* Vertically align */
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.settings-actions button {
+    padding: 9px 16px;
+    /* Adjust padding */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    /* Lighter grey */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    font-size: 0.95em;
+    flex-grow: 1;
+    /* Allow buttons to grow slightly */
+    text-align: center;
+}
+
+/* Give save button slightly more emphasis */
+#save-settings-button {
+    background-color: #28a745;
+    /* Green save button */
+    color: white;
+    border-color: #28a745;
+    font-weight: bold;
+    flex-grow: 1.5;
+    /* Make save button slightly wider if space allows */
+}
+
+#save-settings-button:hover {
+    background-color: #218838;
+    /* Darker green */
+}
+
+.settings-actions button:hover {
+    border-color: #bbb;
+    background-color: #e0e0e0;
+}
+
+#save-settings-button:hover {
+    /* Override general hover for save */
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+
+/* Settings feedback message */
+.settings-message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 1.2em;
+    /* Reserve space */
+    font-size: 0.95em;
+    color: #666;
+    /* Default color */
+}
+
+.settings-message.success {
+    color: green;
+}
+
+.settings-message.error {
+    color: red;
+}
+
+.settings-message.warning {
+    color: orange;
+}
+
+
+/* Hide quiz content when settings are shown */
+#quiz-content.hidden {
+    display: none;
+}
+
+
+/* Add some scrollbar styling for webkit browsers */
+.quiz-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.quiz-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.quiz-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.quiz-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Quiz!</title>
+    <link rel="stylesheet" href="quiz.css">
+    <!-- Inline styles removed, handled in quiz.css -->
+</head>
+
+<body>
+    <!-- Canvas for the confetti effect -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="quiz-container">
+        <!-- Settings Button -->
+        <button id="settings-button" title="Settings">⚙️</button>
+
+        <!-- Close Button -->
+        <button id="close-button" title="Close Quiz">×</button>
+
+        <!-- Main Heading -->
+        <h2>Quick Language Question!</h2>
+
+        <!-- Quiz Area -->
+        <div id="quiz-content">
+            <div id="question-container">
+                <p id="question-text">Loading question...</p>
+            </div>
+            <div id="options-container">
+                <!-- Option buttons loaded by JS -->
+            </div>
+            <div id="feedback-container">
+                <p id="feedback-text"></p>
+            </div>
+            <div id="explanation-container" style="display: none;">
+                <h4>Explanations:</h4>
+                <div id="explanation-text">
+                    <!-- Explanations loaded by JS -->
+                </div>
+            </div>
+            <button id="next-question-button" style="display: none;">Next Question</button>
+        </div>
+
+        <!-- Settings Area (Initially Hidden) -->
+        <div id="settings-area" style="display: none;">
+            <h4>Language Selection</h4>
+            <p><small>Choose the languages you want to practice:</small></p>
+            <div id="language-options">
+                <!-- Language checkboxes loaded by JS -->
+            </div>
+            <div class="settings-actions">
+                <button id="select-all-button">Select All</button>
+                <button id="select-none-button">Select None</button>
+                <button id="save-settings-button">Save & Close</button>
+            </div>
+            <p id="settings-feedback" class="settings-message"></p> <!-- For Save/Error messages -->
+        </div>
+
+    </div> <!-- End of quiz-container -->
+
+    <!-- Load Libraries -->
+    <script src="lib/confetti.browser.min.js"></script>
+    <!-- Load Main Logic -->
+    <script src="quiz.js" defer></script>
+</body>
+
+</html>

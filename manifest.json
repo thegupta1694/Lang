@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "LinguaTab Quizzer Popup",
+    "version": "0.4.0",
+    "description": "Get a quick language quiz popup on new tabs, now with language selection!",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "tabs",
+        "storage"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
