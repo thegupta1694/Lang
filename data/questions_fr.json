@@ -1,0 +1,50 @@
+[
+    {
+        "q": "What is 'cat' in French?",
+        "options": [
+            "Chien",
+            "Souris",
+            "Chat",
+            "Oiseau"
+        ],
+        "correctIndex": 2,
+        "explanations": [
+            "'Chien': means 'Dog'.",
+            "'Souris': means 'Mouse'.",
+            "'Chat': means 'Cat'.",
+            "'Oiseau': means 'Bird'."
+        ]
+    },
+    {
+        "q": "How do you say 'yes' in French?",
+        "options": [
+            "Non",
+            "Oui",
+            "Merci",
+            "Bonjour"
+        ],
+        "correctIndex": 1,
+        "explanations": [
+            "'Non': means 'No'.",
+            "'Oui': means 'Yes'.",
+            "'Merci': means 'Thank you'.",
+            "'Bonjour': means 'Hello'."
+        ]
+    },
+    {
+        "q": "What is 'please' in French (formal)?",
+        "options": [
+            "S'il vous plaît",
+            "Merci",
+            "Excusez-moi",
+            "Au revoir"
+        ],
+        "correctIndex": 0,
+        "explanations": [
+            "'S'il vous plaît': means 'Please' (formal).",
+            "'Merci': means 'Thank you'.",
+            "'Excusez-moi': means 'Excuse me'.",
+            "'Au revoir': means 'Goodbye'."
+        ]
+    }
+]

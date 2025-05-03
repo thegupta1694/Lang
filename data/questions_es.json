@@ -1,0 +1,50 @@
+[
+    {
+        "q": "Which word means 'hello' in Spanish?",
+        "options": [
+            "Adiós",
+            "Hola",
+            "Gracias",
+            "Por favor"
+        ],
+        "correctIndex": 1,
+        "explanations": [
+            "'Adiós': means 'Goodbye'.",
+            "'Hola': means 'Hello'.",
+            "'Gracias': means 'Thank you'.",
+            "'Por favor': means 'Please'."
+        ]
+    },
+    {
+        "q": "What is 'goodbye' in Spanish?",
+        "options": [
+            "Hola",
+            "Adiós",
+            "Sí",
+            "No"
+        ],
+        "correctIndex": 1,
+        "explanations": [
+            "'Hola': means 'Hello'.",
+            "'Adiós': means 'Goodbye'.",
+            "'Sí': means 'Yes'.",
+            "'No': means 'No'."
+        ]
+    },
+    {
+        "q": "How do you say 'thank you' in Spanish?",
+        "options": [
+            "De nada",
+            "Por favor",
+            "Gracias",
+            "Lo siento"
+        ],
+        "correctIndex": 2,
+        "explanations": [
+            "'De nada': means 'You're welcome'.",
+            "'Por favor': means 'Please'.",
+            "'Gracias': means 'Thank you'.",
+            "'Lo siento': means 'I'm sorry'."
+        ]
+    }
+]
