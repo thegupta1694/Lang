@@ -13,7 +13,7 @@ chrome.tabs.onCreated.addListener((tab) => {
         /*
         if (tab.openerTabId) {
             console.log("New tab potentially opened from link (based on openerTabId), skipping quiz popup.");
-            return;
+            return; // If uncommented, prevents quiz if tab was opened by another tab
         }
         */
         // --- End of commented out check ---
@@ -54,9 +54,13 @@ chrome.tabs.onCreated.addListener((tab) => {
                             });
                         } else {
                             // console.log("Original tab likely already closed or inaccessible."); // Reduce noise
+                            // If error other than tab not found, log it
+                            if (chrome.runtime.lastError && !chrome.runtime.lastError.message.includes("No tab with id")) {
+                                console.error("Error checking original tab:", chrome.runtime.lastError.message);
+                            }
                         }
                     });
-                }, 150); // Delay to allow popup focus
+                }, 150); // Delay to allow popup focus potentially
                 // --- End of optional tab removal ---
             }
         });
@@ -73,9 +77,14 @@ chrome.runtime.onInstalled.addListener((details) => {
     console.log(`LinguaTab Quizzer extension ${details.reason}.`);
     // Set default languages on first install
     if (details.reason === 'install') {
+        // Define language keys based on available languages in quiz.js (or maintain this list)
         const languageKeys = ['es', 'fr', 'de', 'it', 'pt', 'ja']; // Match keys in languageNames/allQuestions
         chrome.storage.local.set({ selectedLanguages: languageKeys }, () => {
-            console.log("Default languages set on install.");
+            if (chrome.runtime.lastError) {
+                console.error("Error setting default languages:", chrome.runtime.lastError.message);
+            } else {
+                console.log("Default languages set on install.");
+            }
         });
     }
 });
